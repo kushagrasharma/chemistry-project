@@ -1,5 +1,5 @@
 from math import sqrt
-	
+from time import sleep	
 
 def isFloat(n, positive = True):
 	try:
@@ -18,7 +18,7 @@ def ke():
         return
     if unknown == 'm':
         ke = raw_input('Please enter the kinetic energy in Joules: ')
-        v = raw_input('Please enter th velocity in meters per second: ')
+        v = raw_input('Please enter the velocity in meters per second: ')
         if not isFloat(ke) or not isFloat(v):
             print "Invalid input for either ke or v.\n"
             return
@@ -36,7 +36,7 @@ def ke():
         return
     else:
         m = raw_input('Please enter the mass in kilograms: ')
-        v = raw_input('Please enter th velocity in meters per second: ')
+        v = raw_input('Please enter the velocity in meters per second: ')
         if not isFloat(m) or not isFloat(v):
             print "Invalid input for either m or v.\n"
             return
@@ -199,6 +199,7 @@ def units():
 		return
 
 help()
+time.sleep(2)
 typeOfCalc = raw_input('Enter your command: ')
 while typeOfCalc != 'quit':
 	if typeOfCalc == 'units':
