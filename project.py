@@ -1,6 +1,8 @@
-from math import sqrt
 from time import sleep	
 
+
+#This function checks if an inputted variable, n, is a float
+#optional parameter positive to check if the variable is a positive float, default yes
 def isFloat(n, positive = True):
 	try:
 		i = float(n)
@@ -10,6 +12,8 @@ def isFloat(n, positive = True):
 		return False
 	return True
 
+#function to compute kinetic energy
+#called from main run loop if command inputted is 'ke'
 def ke():
     print "We will now solve for an unknown in the equation KE = m * v^2.\n"
     unknown = raw_input("What is your unknown? ('ke', 'm', or 'v'):")
@@ -44,6 +48,10 @@ def ke():
         print "The kinetic energy is %.3f Joules" % ke
         return
 
+
+
+#computes unit conversion for distance, called from within units
+
 def distance(start, end, value):
     x = [start, end]
     if [start, end] == ['mm', 'm']:
@@ -59,6 +67,9 @@ def distance(start, end, value):
     if [start, end] == ['km', 'mm']:
         return value * 1000000.0
 
+
+
+#computes unit conversion for mass, called from within units
 def mass(start, end, value):
     x = [start, end]
     if [start, end] == ['mg', 'g']:
@@ -73,6 +84,9 @@ def mass(start, end, value):
         return value * 1000
     if [start, end] == ['kg', 'mg']:
         return value * 1000000.0
+
+
+#computes unit conversion for volume, called from within units
 
 def volume(start, end, value):
     x = [start, end]
@@ -89,14 +103,14 @@ def volume(start, end, value):
     if [start, end] == ['kL', 'mL']:
         return value * 1000000.0
 
-print "This is Kushagra Sharma's AS Chemistry Research Project.\nIf at any time you need help, simply type 'help'.\n"
+
+
 def help():
 	print "For unit to unit calculations, type 'units'.\n"
 	print "For density calculations, type 'density'.\n"
 	print "For kinetic energy calculations, type 'ke'.\n"
 	print "For gravitational potential energy calculations, type 'gpe'.\n"
 	print "For specific heat, type 'cp'.\n"
-	#print "For stochiometry, type 'sto'.\n"
 	print "To quit, type 'quit'.\n"
 
 def density():
@@ -198,6 +212,13 @@ def units():
 		print "Sorry, invalid input."
 		return
 
+
+#starts run loop
+
+
+print "This is Kushagra Sharma's AS Chemistry Research Project.\nIf at any time you need help, simply type 'help'.\n"
+
+
 help()
 time.sleep(2)
 typeOfCalc = raw_input('Enter your command: ')
@@ -212,8 +233,6 @@ while typeOfCalc != 'quit':
 		gpe()
 	elif typeOfCalc == 'cp':
 		cp()
-	#elif typeOfCalc == 'sto':
-	#	sto()
 	elif typeOfCalc == 'help':
 		help()
 	elif typeOfCalc == 'quit':
