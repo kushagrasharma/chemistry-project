@@ -123,23 +123,23 @@ def density():
 	unknown = raw_input('Unknown:')
 	if unknown == 'd':
 		m = raw_input("Please enter the mass in kg: ")
-		v = raw_input("Please enter the volume in m^3: ")
+		v = raw_input("Please enter the volume in cubic meters: ")
 		if isFloat(m) and isFloat(v):
-			print "The density is %.3f kg / m^3" % (float(m) / float(v))
+			print "The density is %.3f kg per cubic meter" % (float(m) / float(v))
 		else:
 			print "Invalid input, please enter 'density' once more and try again.\n"
 	elif unknown == 'm':
-		d = raw_input("Please enter the density in kg / m^3: ")
-		v = raw_input("Please enter the volume in m^3: ")
+		d = raw_input("Please enter the density in kg per cubic meter: ")
+		v = raw_input("Please enter the volume in cubic meters: ")
 		if isFloat(d) and isFloat(v):
 			print "The mass is %.3f kg" % (float(d) * float(v))
 		else:
 			print "Invalid input, please enter 'density' once more and try again.\n"
 	elif unknown == 'v':
 		m = raw_input("Please enter the mass in kg: ")
-		d = raw_input("Please enter the density in kg / m^3: ")
+		d = raw_input("Please enter the density in kg per cubic meter: ")
 		if isFloat(m) and isFloat(d):
-			print "The volume is %.3f m^3" % (float(m) / float(d))
+			print "The volume is %.3f cubic meters" % (float(m) / float(d))
 		else:
 			print "Invalid input, please enter 'density' once more and try again.\n"
 	else:
