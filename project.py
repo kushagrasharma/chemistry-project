@@ -1,4 +1,5 @@
-from time import sleep	
+from time import sleep
+
 
 
 #This function checks if an inputted variable, n, is a float
@@ -113,6 +114,9 @@ def help():
 	print "For specific heat, type 'cp'.\n"
 	print "To quit, type 'quit'.\n"
 
+
+
+
 def density():
 	print "We will now be calculating density, mass, or volume!\n"
 	d = None
@@ -144,6 +148,9 @@ def density():
 			print "Invalid input, please enter 'density' once more and try again.\n"
 	else:
 		print "Sorry, the unknown entered must be either 'd', 'm', or 'v'. Please enter 'density' once more and try again.\n"
+
+
+
 
 def units():
 	print "We will now be converting between units, precise to 3 decimal places.\n"
@@ -213,15 +220,56 @@ def units():
 		return
 
 
+
+def gpe():
+	print "We will now be calculating gravitational potential energy."
+	print "We will be using the equation GPE = mgh"
+	print 'Please enter the unknown when prompted. Unknowns include gpe, m, g, and h.'
+	unknown = raw_input('Enter the unknown: ').strip().lower()
+	try:
+		if unknown.strip().lower() == 'gpe':
+			m = float(raw_input("Enter the mass in kgs: "))
+			g = float(raw_input('Enter the gravity: '))
+			h = float(raw_input('Enter the height in meters: '))
+			print 'The GPE is %3f Joules' % (m*g*h)
+		elif unknown == 'm':
+			gpe = float(raw_input("Enter the GPE in Joules: "))
+			g = float(raw_input('Enter the gravity: '))
+			h = float(raw_input('Enter the height in meters: '))
+			print 'The mass is %3f kgs' % ((gpe)/(g*h))
+		elif unknown == 'g':
+			gpe = float(raw_input("Enter the GPE in Joules: "))
+			m = float(raw_input('Enter the mass in kgs: '))
+			h = float(raw_input('Enter the height in meters: '))
+			print 'The gravity is %3f m/s/s' % ((gpe)/(m*h))
+		elif unknown == 'h':
+			gpe = float(raw_input("Enter the GPE in Joules: "))
+			g = float(raw_input('Enter the gravity: '))
+			m = float(raw_input('Enter the mass in kgs: '))
+			print 'The height is %3f meters' % ((gpe)/(g*m))
+		else:
+			print 'Invalid input'
+			return
+	except ValueError:
+		print 'Invalid input'
+		return
+	return
+
+
+
+def cp():
+	pass
+
 #starts run loop
 
 
 print "This is Kushagra Sharma's AS Chemistry Research Project.\nIf at any time you need help, simply type 'help'.\n"
 
 
+
 help()
-time.sleep(2)
-typeOfCalc = raw_input('Enter your command: ')
+sleep(2)
+typeOfCalc = raw_input('Enter your command: ').strip().lower()
 while typeOfCalc != 'quit':
 	if typeOfCalc == 'units':
 		units()
