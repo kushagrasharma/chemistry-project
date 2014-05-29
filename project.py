@@ -231,22 +231,22 @@ def gpe():
 			m = float(raw_input("Enter the mass in kgs: "))
 			g = float(raw_input('Enter the gravity: '))
 			h = float(raw_input('Enter the height in meters: '))
-			print 'The GPE is %3f Joules' % (m*g*h)
+			print 'The GPE is %.3f Joules' % (m*g*h)
 		elif unknown == 'm':
 			gpe = float(raw_input("Enter the GPE in Joules: "))
 			g = float(raw_input('Enter the gravity: '))
 			h = float(raw_input('Enter the height in meters: '))
-			print 'The mass is %3f kgs' % ((gpe)/(g*h))
+			print 'The mass is %.3f kgs' % ((gpe)/(g*h))
 		elif unknown == 'g':
 			gpe = float(raw_input("Enter the GPE in Joules: "))
 			m = float(raw_input('Enter the mass in kgs: '))
 			h = float(raw_input('Enter the height in meters: '))
-			print 'The gravity is %3f m/s/s' % ((gpe)/(m*h))
+			print 'The gravity is %.3f m/s/s' % ((gpe)/(m*h))
 		elif unknown == 'h':
 			gpe = float(raw_input("Enter the GPE in Joules: "))
 			g = float(raw_input('Enter the gravity: '))
 			m = float(raw_input('Enter the mass in kgs: '))
-			print 'The height is %3f meters' % ((gpe)/(g*m))
+			print 'The height is %.3f meters' % ((gpe)/(g*m))
 		else:
 			print 'Invalid input'
 			return
@@ -258,7 +258,39 @@ def gpe():
 
 
 def cp():
-	pass
+	print "We will now be calculating specific heat."
+	print "We will be using the equation Specific heat is equal to energy divided by change in heat times mass."
+	print 'Please enter the unknown when prompted. Unknowns include cp (specific heat in J/g.C), m (mass in kgs), q (energy in Joules), and t (in degrees Celsius).'
+	unknown = raw_input('Enter the unknown: ').strip().lower()
+	try:
+		if unknown == 'cp':
+			m = float(raw_input("Enter the mass in kgs: "))
+			q = float(raw_input('Enter the energy in Joules: '))
+			t = float(raw_input('Enter the change in temperature in Celsius: '))
+			print 'The specific heat is %.3f J/g.C' % (q/(t*m))
+		elif unknown == 'm':
+			cp = float(raw_input("Enter the specific heat in J/g.C: "))
+			q = float(raw_input('Enter the energy in Joules: '))
+			t = float(raw_input('Enter the change in temperature in Celsius: '))
+			print 'The mass is %.3f kgs' % (q/(cp*t))
+		elif unknown == 't':
+			cp = float(raw_input("Enter the specific heat in J/g.C: "))
+			q = float(raw_input('Enter the energy in Joules: '))
+			m = float(raw_input('Enter the mass in kgs: '))
+			print 'The change in temperature is %.3f degrees Celsius' % (q/(cp*m))
+		elif unknown == 'q':
+			cp = float(raw_input("Enter the specific heat in J/g.C: "))
+			m = float(raw_input('Enter the mass in kgs: '))
+			t = float(raw_input('Enter the change in temperature in Celsius: '))
+			print 'The energy is %.3f Joules' % (cp*m*t)
+		else:
+			print 'Invalid input'
+			return
+	except ValueError:
+		print 'Invalid input'
+		return
+	return	
+
 
 #starts run loop
 
